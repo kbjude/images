@@ -11,8 +11,10 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= image_tag @post.images %>
+  <strong>Image:</strong>
+  <% if @post.image.attached? %>
+    <%= image_tag @post.image, width: '60px' %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
