@@ -1,0 +1,9 @@
+<h1>Welcome#home</h1>
+<p>Find me in app/views/welcome/home.html.erb</p>
+
+<% if current_user %>
+    <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+<% elsif %>
+    <%= link_to 'Sign Up', new_user_registration_path %>
+    <%= link_to 'Sign In', new_user_session_path %>
+<% end %>

@@ -7,6 +7,8 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Images</th>
+      <th>Avartars</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,21 @@
       <tr>
         <td><%= post.name %></td>
         <td><%= post.description %></td>
+        <td>
+          <% if post.image.attached? %>
+            <%= image_tag post.image, width: '30%' %>
+          <% end %>
+        </td>
+
+        <td>
+        <strong>Avartars:</strong>
+        <% if @post.avartars.attached? %>
+          <% @post.avartars.each do |avartar| %>
+              <%= image_tag avartar.variant(saver: {quality: 3} ) %>
+            <% end %>
+        <% end %>
+        </td>
+
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
